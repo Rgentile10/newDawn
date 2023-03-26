@@ -1,0 +1,18 @@
+{% load static %}<!--The static template tag generates the absolute URL of static files.That’s all you need to do for development. -->
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+
+<!-- changed it to pont at the namespaced view -->
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

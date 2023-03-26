@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\genti\socialMedia\env"
+VIRTUAL_ENV="C:\Users\genti\CS 3240\django-Rgentile10\django-rgentile10\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
