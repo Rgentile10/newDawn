@@ -1,0 +1,30 @@
+<!-- whoshonest/templates/whoshonest/dashboard.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="column">
+    {% for followed in user.profile.follows.all %}
+        {% for messages in followed.user.messages.all %}
+            <div class="box">
+                {{ messages.body }}
+                <span class="is-small has-text-grey-light">
+                    ({{ messages.created_at }} by {{ messages.user.username }})
+                </span>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+<div class="column is-one-third">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button is-success is-fullwidth is-medium mt-5"
+                type="submit">Message
+        </button>
+    </form>
+</div>
+
+{% endblock content %}
